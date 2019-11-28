@@ -8,17 +8,16 @@ var app = express();
 
 const connection=mysql.createPool({
     host:'us-cdbr-iron-east-05.cleardb.net',
-    user:'b5563aa59ec2b6',
-    password:'6ce901ec',
-    database:'heroku_ecd0f45d12cd2bf'
+    user:'b9e81c42f3daea',
+    password:'b7e74f20',
+    database:'heroku_386181d448e7db5'
 });  
 
 
 
 
-
 app.get('/', function(req,resp){
-	 connection.query("select * from sdgmates",function(error,rows,fields){
+	 connection.query("select * from students",function(error,rows,fields){
 	    if(!!error){
 		console.log('Error in the query');
 	}else{
