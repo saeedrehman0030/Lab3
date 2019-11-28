@@ -5,19 +5,12 @@
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server --mode development --open",
-    "build": "webpack --mode production"
+    "build": "webpack --mode production",
+    "heroku":"./node_modules/webpack/bin/webpack.js -p --progress && node server.js"
   },
+
   "author": "saeed(not so programming smart)rehamn",
   "license": "ISC",
-  "devDependencies": {
-    "@babel/plugin-proposal-class-properties": "^7.5.5",
-    "css-loader": "^3.2.0",
-    "html-webpack-plugin": "^3.2.0",
-    "style-loader": "^1.0.0",
-    "webpack": "^4.40.2",
-    "webpack-cli": "^3.3.9",
-    "webpack-dev-server": "^3.8.1"
-  },
   "dependencies": {
     "@babel/core": "^7.6.0",
     "@babel/preset-env": "^7.6.0",
@@ -30,6 +23,22 @@
     "react": "^16.9.0",
     "react-bootstrap": "^1.0.0-beta.12",
     "react-dom": "^16.9.0",
-    "wget": "0.0.1"
+    "wget": "0.0.1",
+    "webpack": "^4.40.2",
+    "webpack-cli": "^3.3.9",
+    "webpack-dev-server": "^3.8.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.6.0",
+    "@babel/preset-env": "^7.6.0",
+    "@babel/preset-react": "^7.0.0",
+    "@babel/plugin-proposal-class-properties": "^7.5.5",
+    "babel-loader": "^8.0.6",
+    "css-loader": "^3.2.0",
+    "html-webpack-plugin": "^3.2.0",
+    "style-loader": "^1.0.0",
+    "webpack": "^4.40.2",
+    "webpack-cli": "^3.3.9",
+    "webpack-dev-server": "^3.8.1"
   }
 }

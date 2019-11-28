@@ -6,19 +6,19 @@ const app= express();
 
 const students= "select ID, Names, Country from sdgmates";
 
-const connection=mysql.createConnection({
-    host:'localhost',
-    user:'root',
-    password:'',
-    database:'task1'
+const connection=mysql.createPool({
+    host:'us-cdbr-iron-east-05.cleardb.net',
+    user:'b5563aa59ec2b6',
+    password:'6ce901ec',
+    database:'heroku_ecd0f45d12cd2bf'
 });
 
-connection.connect(err=>{
-    if(err){
-        throw (err);
-    }
-    
+const path = require('path');
+app.use("/", express.static(path.join(_dirname, 'build')));
+app.get("/", function(req,res) {
+    res.sendFile(path.join(_dirname, 'dist', 'index.html'));
 });
+
 
 app.use(cors()); 
 
@@ -36,8 +36,6 @@ app.get('/students',(req,res)=>{
     });
 });
     
-app.listen(3000,()=>{
-    console.log(`Server connected to port 3000!!`)
-});
+app.listen(process.env.PORT || 3000)
 
 //res.send('Connection Established, Hang In there :)')
