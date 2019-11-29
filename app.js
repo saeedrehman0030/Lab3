@@ -14,14 +14,12 @@ const connection=mysql.createPool({
 });  
 
 
-
-
 app.get('/', function(req,resp){
 	 connection.query("select * from students",function(error,rows,fields){
 	    if(!!error){
-		console.log('Error in the query');
+		console.log('Error Connecting');
 	}else{
-		console.log('Successful query run\n');
+		console.log('Successful Connection\n');
 		console.log(rows);
 		
 		//resp.send('Hello, ' + JSON.stringify(rows));
@@ -29,7 +27,7 @@ app.get('/', function(req,resp){
 		
 		   var a=JSON.stringify( rows);
 	
-		resp.send("<!DOCTYPE html><html ><head><title >Document</title></head><body><p style='color:yellow;font-size:20px;'>"+a+"</p></body></html>" );
+		resp.send("<!DOCTYPE html><html ><head><title >Document</title></head><body><p style='color:red;font-size:20px;'>"+a+"</p></body></html>" );
 	}
 });
     
@@ -37,5 +35,3 @@ app.get('/', function(req,resp){
 app.listen('3000',() =>{
     console.log('Server started on port 3000');
 });
-
-
